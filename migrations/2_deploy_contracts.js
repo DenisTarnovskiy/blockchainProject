@@ -1,5 +1,5 @@
 var SafeMath = artifacts.require("./SafeMath.sol");
-var MyToken = artifacts.require("./MyToken.sol");
+var MyToken = artifacts.require("./XYN2.sol");
 var Addresses = artifacts.require("./Addresses.sol");
 var Crowdsale = artifacts.require("./Crowdsale.sol");
 
