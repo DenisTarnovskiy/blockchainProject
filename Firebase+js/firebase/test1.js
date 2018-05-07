@@ -1,8 +1,32 @@
+
+var registerBtn = document.getElementById("registerBtn");
+var phonenumber = document.getElementById("phone");
+var email = document.getElementById("email");
+var pass = document.getElementById("pass1");
+var passConfirm = document.getElementById("pass2");
+var iAgreeCheck = document.getElementById("field_terms");
+var firebaseRef = firebase.database().ref();
+
+function registerClick() {
+  if((phonenumber.value)&&(email.value)&&(pass.value)&&(passConfirm.value)&&(pass.value == passConfirm.value)&&(iAgreeCheck.checked))
+    {
+
+      firebaseRef.push("phonenumber").set(phonenumber.value);
+      firebaseRef.push("email").set(email.value);
+      firebaseRef.push("password").set(pass.value);
+      firebaseRef.push("passConfirm").set(passConfirm.value);
+
+      window.alert("gg niggger");
+
+    } else {
+    window.alert("fuck you nigggger");
+    }
+}
+
 function checkPass()
 {
     //Store the password field objects into variables ...
-    var pass1 = document.getElementById('pass1');
-    var pass2 = document.getElementById('pass2');
+
     //Store the Confimation Message Object ...
     var message = document.getElementById('confirmMessage');
     //Set the colors we will be using ...
@@ -10,18 +34,18 @@ function checkPass()
     var badColor = "#ff6666";
     //Compare the values in the password field
     //and the confirmation field
-    if(pass1.value == pass2.value){
+    if(pass.value == passConfirm.value){
         //The passwords match.
         //Set the color to the good color and inform
         //the user that they have entered the correct password
-        pass2.style.backgroundColor = goodColor;
+        passConfirm.style.backgroundColor = goodColor;
         message.style.color = goodColor;
         message.innerHTML = "Passwords Match"
     }else{
         //The passwords do not match.
         //Set the color to the bad color and
         //notify the user.
-        pass2.style.backgroundColor = badColor;
+        passConfirm.style.backgroundColor = badColor;
         message.style.color = badColor;
         message.innerHTML = "Passwords Do Not Match!"
     }
@@ -70,4 +94,5 @@ function add_validate(address)
     {
         document.getElementById("statusAdd").innerHTML	= "<span class='valid'>Thanks, Address looks valid!</span>";
     }
+
 }
